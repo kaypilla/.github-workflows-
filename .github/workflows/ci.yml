@@ -8,12 +8,15 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Updated to v3
+      uses: actions/checkout@v3
+      with:
+        node-version: '20'  # Explicitly set Node.js version to 20
 
     - name: Set up Python
-      uses: actions/setup-python@v4  # Updated to v4
+      uses: actions/setup-python@v4
       with:
         python-version: '3.8'
+        node-version: '20'  # Explicitly set Node.js version to 20
 
     - name: Install dependencies
       run: |
@@ -23,3 +26,4 @@ jobs:
 
     - name: Run tests
       run: python -m unittest discover -s tests
+
